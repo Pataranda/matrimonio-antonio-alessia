@@ -3,6 +3,19 @@ const TURNSTILE_SECRET = '0x4AAAAAAE44C5LBnAvFH1umZ2eov3tnuno';
 function doPost(e) {
   const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
   const p = e.parameter || {};
+
+if (!verifyTurnstile(p['cf-turnstile-response'])) {
+
+  return ContentService
+    .createTextOutput(
+      JSON.stringify({
+        ok: false,
+        error: 'turnstile_failed'
+      })
+    )
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
   const type = p.type === 'guestbook' ? 'guestbook' : 'rsvp';
   const sheetName = type === 'guestbook' ? 'Guestbook' : 'RSVP';
   let sheet = ss.getSheetByName(sheetName);
