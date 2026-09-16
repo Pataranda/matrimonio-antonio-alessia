@@ -1,5 +1,5 @@
 const SPREADSHEET_ID = '153F1VxwUTEZymcZDdLaPbaTb4igyGFqOxM8dXBmkp30';
-const TURNSTILE_SECRET = 'LA_TUA_SECRET_KEY';
+const TURNSTILE_SECRET = '0x4AAAAAAE44C5LBnAvFH1umZ2eov3tnuno';
 function doPost(e) {
   const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
   const p = e.parameter || {};
