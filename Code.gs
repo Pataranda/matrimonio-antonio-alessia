@@ -21,3 +21,17 @@ function clean(value) {
   if (/^[=+\-@]/.test(value)) value = "'" + value;
   return value.substring(0, 500);
 }
+function verifyTurnstile(token) {
+  const response = UrlFetchApp.fetch(
+    'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+    {
+      method: 'post',
+      payload: {
+        secret: TURNSTILE_SECRET,
+        response: token
+      }
+    }
+  );
+  const result = JSON.parse(response.getContentText());
+  return result.success === true;
+}
