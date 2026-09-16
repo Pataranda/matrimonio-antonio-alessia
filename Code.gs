@@ -1,4 +1,4 @@
-const SPREADSHEET_ID = 'INCOLLA_QUI_ID_DEL_FOGLIO_GOOGLE';
+const SPREADSHEET_ID = '153F1VxwUTEZymcZDdLaPbaTb4igyGFqOxM8dXBmkp30';
 
 function doPost(e) {
   const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
