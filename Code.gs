@@ -5,7 +5,6 @@ function doPost(e) {
   const p = e.parameter || {};
 
 if (!verifyTurnstile(p['cf-turnstile-response'])) {
-
   return ContentService
     .createTextOutput(
       JSON.stringify({
