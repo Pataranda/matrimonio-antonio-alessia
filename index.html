@@ -12,30 +12,28 @@
 <section id="storia" class="section"><div class="wrap grid2 story"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1000&q=85" alt="La coppia"><div><div class="eyebrow" style="color:#9d8756">Antonio e Alessia</div><h2 style="font-size:48px">Un incontro, mille sorrisi e una promessa.</h2><p>Tra viaggi, risate e piccoli momenti quotidiani è nata la storia che desideriamo celebrare con voi.</p><p>Dopo quel giorno, questa pagina diventerà il nostro album digitale.</p></div></div></section>
 <section id="programma" class="section dark center"><div class="wrap"><div class="eyebrow" style="color:#dec98e">Il programma</div><h2 style="font-size:48px">La nostra giornata</h2><div class="cards"><div class="card"><h3>16:00</h3><b>Cerimonia</b><p>Chiesa di San Giuseppe</p></div><div class="card"><h3>18:00</h3><b>Ricevimento</b><p>Golden Gate</p></div><div class="card"><h3>22:00</h3><b>Festa</b><p>Musica, brindisi e balli</p></div></div></div></section>
 <section id="luoghi" class="section"><div class="wrap"><h2 class="center" style="font-size:48px">Dove saremo</h2><div class="grid2"><article class="card"><img src="https://images.unsplash.com/photo-1548625361-987d0a5c7c4f?auto=format&fit=crop&w=1200&q=85"><div class="pad"><h3>Chiesa di San Giuseppe</h3><p>Tempio Pausania · ore 16:00</p><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Chiesa+San+Giuseppe+Tempio+Pausania">Apri la mappa</a></div></article><article class="card"><img src="https://images.unsplash.com/photo-1507501336603-6e31db2be093?auto=format&fit=crop&w=1200&q=85"><div class="pad"><h3>Golden Gate</h3><p>Bortigiadas · ore 18:00</p><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Golden+Gate+Bortigiadas">Apri la mappa</a></div></article></div></div></section>
-<section id="guestbook" class="section dark"><div class="wrap"><div class="center"><div class="eyebrow" style="color:#dec98e">Lasciateci un ricordo</div><h2 style="font-size:48px">Guestbook</h2></div><div class="grid2"><form id="guestbookForm" class="formbox"><label>Nome</label><input class="field" name="name" required><label>Messaggio</label><textarea class="field" name="message" maxlength="500" required></textarea><button class="btn">Lascia il messaggio</button><div id="guestbookStatus" class="status"></div></form><div id="messages" class="messages"></div></div></div></section>
-<section id="rsvp" class="section"><div class="wrap grid2"><div><div class="eyebrow" style="color:#9d8756">29 maggio 2027</div><h2 style="font-size:48px">Ci sarai?</h2><p>Conferma la partecipazione e indicaci eventuali esigenze alimentari.</p></div><form id="rsvpForm" class="formbox" style="box-shadow:0 15px 45px #0002"><label>Nome e cognome</label><input class="field" name="name" required><label>Parteciperai?</label><select class="field" name="attendance"><option value="si">Sì, con piacere</option><option value="no">Non potrò partecipare</option></select><label>Numero di persone</label><select class="field" name="guests"><option>1</option><option>2</option><option>3</option><option>4</option></select><label>Allergie, intolleranze o messaggio</label><textarea class="field" name="notes"></textarea>
-<div class="cf-turnstile" style="margin-bottom:20px;" data-sitekey="0x4AAAAAAE44CyKv1vOCTnD4"></div>
-<button class="btn">Invia conferma</button><div id="rsvpStatus" class="status"></div></form></div></section>
+<section id="guestbook" class="section dark"><div class="wrap"><div class="center">
+  <div class="eyebrow" style="color:#dec98e">Lasciateci un ricordo</div><h2 style="font-size:48px">Guestbook</h2></div>
+  <div class="grid2"><form id="guestbookForm" class="formbox"><label>Nome</label><input class="field" name="name" required><label>Messaggio</label><textarea class="field" name="message" maxlength="500" required></textarea>
+  <div class="cf-turnstile" style="margin-bottom:20px;" data-sitekey="0x4AAAAAAE44CyKv1vOCTnD4"></div>
+  <button class="btn">Lascia il messaggio</button><div id="guestbookStatus" class="status"></div></form><div id="messages" class="messages"></div></div></div></section>
+<section id="rsvp" class="section"><div class="wrap grid2"><div>
+  <div class="eyebrow" style="color:#9d8756">29 maggio 2027</div><h2 style="font-size:48px">Ci sarai?</h2><p>Conferma la partecipazione e indicaci eventuali esigenze alimentari.</p></div><form id="rsvpForm" class="formbox" style="box-shadow:0 15px 45px #0002"><label>Nome e cognome</label><input class="field" name="name" required><label>Parteciperai?</label><select class="field" name="attendance"><option value="si">Sì, con piacere</option><option value="no">Non potrò partecipare</option></select><label>Numero di persone</label><select class="field" name="guests"><option>1</option><option>2</option><option>3</option><option>4</option></select><label>Allergie, intolleranze o messaggio</label><textarea class="field" name="notes"></textarea>
+  <div class="cf-turnstile" style="margin-bottom:20px;" data-sitekey="0x4AAAAAAE44CyKv1vOCTnD4"></div>
+  <button class="btn">Invia conferma</button><div id="rsvpStatus" class="status"></div></form></div></section>
 <footer><div style="color:#d9c182">♥</div><h2>Antonio & Alessia</h2><div class="eyebrow">29 maggio 2027 · Tempio Pausania</div></footer>
 <script>
 const GOOGLE_SCRIPT_URL='https://script.google.com/macros/s/AKfycby6xVqYGPZmnL49KurEcvtb6mpWHuffUtrnB8H9uufRI7LislAFg1-vMs1n35PRQpZP/exec';
 async function loadGuestbook() {
-
   try {
-
     const response = await fetch(GOOGLE_SCRIPT_URL);
-
     const messages = await response.json();
-
     const container = document.getElementById('messages');
-
     container.innerHTML = '';
-
     messages
       .slice(-3)
       .reverse()
       .forEach(item => {
-
         container.insertAdjacentHTML(
           'beforeend',
           `<div class="message">
@@ -43,17 +41,11 @@ async function loadGuestbook() {
              <small>${item.nome}</small>
            </div>`
         );
-
       });
-
   } catch(error) {
-
     console.error(error);
-
   }
-
 }
-
 const target=new Date('2027-05-29T16:00:00+02:00').getTime();setInterval(()=>{let d=Math.max(0,target-Date.now());const x=[Math.floor(d/86400000),Math.floor(d/3600000)%24,Math.floor(d/60000)%60,Math.floor(d/1000)%60];['days','hours','minutes','seconds'].forEach((id,i)=>document.getElementById(id).textContent=String(x[i]).padStart(2,'0'))},1000);
 async function send(form,type,statusId){const status=document.getElementById(statusId);status.className='status';if(GOOGLE_SCRIPT_URL.startsWith('INCOLLA_QUI')){status.textContent='Configura prima l’URL di Google Apps Script nel file index.html.';status.classList.add('err');return false}const data=Object.fromEntries(new FormData(form));console.log(data);data.type=type;try{await fetch(GOOGLE_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data)});status.textContent='Dati inviati correttamente. Grazie!';status.classList.add('ok');return data}catch(e){status.textContent='Invio non riuscito. Riprova.';status.classList.add('err');return false}}
 document.getElementById('rsvpForm').addEventListener('submit',async e=>{e.preventDefault();if(await send(e.target,'rsvp','rsvpStatus'))e.target.reset()});document.getElementById('guestbookForm').addEventListener('submit',async e=>{e.preventDefault();const d=await send(e.target,'guestbook','guestbookStatus');if(d){document.getElementById('messages').insertAdjacentHTML('afterbegin',`<div class="message"><p class="serif">“${d.message.replace(/[<>]/g,'')}”</p><small>${d.name.replace(/[<>]/g,'')}</small></div>`);e.target.reset()}});
