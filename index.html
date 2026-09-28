@@ -6,6 +6,18 @@
       .story img,.card img{width:100%;height:420px;object-fit:cover;border-radius:28px}.story-slider{
   position:relative;
 }
+ #storyPhoto{
+  width:100%;
+  height:520px;
+  object-fit:cover;
+  border-radius:28px;
+  opacity:1;
+  transition:opacity 1s ease-in-out;
+}
+      #storyTitle,
+#storyDescription{
+  transition:opacity 1s ease-in-out;
+}
 .story-slider img{
   width:100%;
   height:520px;
@@ -13,20 +25,7 @@
   border-radius:28px;
   transition:opacity .8s ease;
 }
-.story-controls{
-  margin-top:15px;
-  display:flex;
-  justify-content:center;
-  gap:10px;
-}
-.story-controls button{
-  background:var(--gold);
-  border:0;
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  cursor:pointer;
-}.dark{background:var(--green);color:#fff}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:45px}.card{background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 15px 45px #0002;color:var(--ink)}.card .pad{padding:26px}.dark .card{background:#ffffff0d;color:#fff;border:1px solid #ffffff18;text-align:center;padding:25px}.formbox{background:#313131;color:#ffffff;padding:34px;border-radius:28px}.formbox label{color:#ffffff !important;}.field{width:100%;padding:14px;border:1px solid #d9d2c4;border-radius:12px;margin:8px 0 18px;font:inherit}textarea.field{min-height:120px}.messages{display:grid;gap:14px}.message{padding:24px;border-radius:22px;background:#ffffff0d;border:1px solid #ffffff18}.status{margin-top:14px;padding:12px;border-radius:10px;display:none}.ok{display:block;background:#e7f4ea;color:#286238}.err{display:block;background:#fde8e8;color:#8f2323}footer{background:var(--dark);color:#fff;text-align:center;padding:55px 20px}@media(max-width:760px){.nav .links{display:none}.count{grid-template-columns:repeat(2,1fr)}.grid2,.cards{grid-template-columns:1fr}.hero{padding:100px 20px 50px}.section{padding:65px 20px}}
+.dark{background:var(--green);color:#fff}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:45px}.card{background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 15px 45px #0002;color:var(--ink)}.card .pad{padding:26px}.dark .card{background:#ffffff0d;color:#fff;border:1px solid #ffffff18;text-align:center;padding:25px}.formbox{background:#313131;color:#ffffff;padding:34px;border-radius:28px}.formbox label{color:#ffffff !important;}.field{width:100%;padding:14px;border:1px solid #d9d2c4;border-radius:12px;margin:8px 0 18px;font:inherit}textarea.field{min-height:120px}.messages{display:grid;gap:14px}.message{padding:24px;border-radius:22px;background:#ffffff0d;border:1px solid #ffffff18}.status{margin-top:14px;padding:12px;border-radius:10px;display:none}.ok{display:block;background:#e7f4ea;color:#286238}.err{display:block;background:#fde8e8;color:#8f2323}footer{background:var(--dark);color:#fff;text-align:center;padding:55px 20px}@media(max-width:760px){.nav .links{display:none}.count{grid-template-columns:repeat(2,1fr)}.grid2,.cards{grid-template-columns:1fr}.hero{padding:100px 20px 50px}.section{padding:65px 20px}}
     </style>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </head>
@@ -43,9 +42,6 @@
         id="storyPhoto"
         src="images/images01.jpg"
         alt="Antonio e Alessia">
-
-      <div  <button id="nextStory">&gt;</button>
-      </div>
 
     </div>
 
@@ -144,32 +140,51 @@ loadGuestbook();
 ];
 let currentStory = 0;
 function showStory(index){
-  currentStory = index;
-  document.getElementById('storyPhoto').src =
-    storySlides[index].image;
-  document.getElementById('storyTitle').textContent =
-    storySlides[index].title;
-  document.getElementById('storyDescription').textContent =
-    storySlides[index].description;
+
+  const photo =
+    document.getElementById('storyPhoto');
+
+  const title =
+    document.getElementById('storyTitle');
+
+  const description =
+    document.getElementById('storyDescription');
+
+  photo.style.opacity = 0;
+  title.style.opacity = 0;
+  description.style.opacity = 0;
+
+  setTimeout(() => {
+
+    currentStory = index;
+
+    photo.src =
+      storySlides[index].image;
+
+    title.textContent =
+      storySlides[index].title;
+
+    description.textContent =
+      storySlides[index].description;
+
+    photo.style.opacity = 1;
+    title.style.opacity = 1;
+    description.style.opacity = 1;
+
+  },500);
+
 }
-document.getElementById('nextStory')
-.addEventListener('click',()=>{
+
+  showStory(0);
+
+setInterval(() => {
+
   showStory(
     (currentStory + 1) % storySlides.length
   );
-});
-document.getElementById('prevStory')
-.addEventListener('click',()=>{
-  showStory(
-    (currentStory - 1 + storySlides.length)
-    % storySlides.length
-  );
-});
-setInterval(()=>{
-  showStory(
-    (currentStory + 1) % storySlides.length
-  );
-},4000);
+
+},10000);
+  
 </script>
 </body>
 </html>
